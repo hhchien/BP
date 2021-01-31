@@ -14,7 +14,7 @@ int main(){
     case 1:
         listStudent();
         break;
-    case 2:
+    /*case 2:
         int n;
         printf("Enter number of students you want to add to the list: ");
         scanf("%d", &n);
@@ -27,7 +27,7 @@ int main(){
         findStudent(find);
         break;
     case 4:
-        return 0;
+        return 0;*/
     default:
         printf("ERROR: Invalid option!");
         break;
@@ -73,14 +73,13 @@ void prtStudentLine(Student x){
 void listStudent(){
     prtTableH();
     FILE *data = fopen("SV2021.dat", "r");
-    while(!feof(data)){
-        Student a;
-        char tmp;
+    while(1){
+        char *tmp;
         tmp = fgetc(data);
-        while(!isdigit(tmp)){
-            strcat(a.name, tmp);
+        while(!isdigit(tmp) && tmp != feof(data)){
+            printf("%c", tmp);
             tmp = fgetc(data);
         }
-        fscanf(data, "%.2f",)
+    }
     fclose(data);
 }
